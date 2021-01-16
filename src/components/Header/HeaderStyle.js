@@ -7,7 +7,7 @@ const useStyles = createUseStyles ({
         alignItems: 'center',
     },
     title: {
-        fontSize: "35px"
+        fontSize: "30px"
     },
 })
 

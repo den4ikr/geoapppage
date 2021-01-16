@@ -4,6 +4,7 @@ import { ThunkAction } from 'redux-thunk';
 import { WeatherResponseType } from './../types/types';
 
 const SET_DATA = "SET_DATA"
+const SET_ERROR = "SET_ERROR"
 
 const initialState = {
     data: {} as WeatherResponseType,
@@ -24,12 +25,10 @@ type PropertiesType <T> = T extends { [key: string]: infer U } ? U : never
 type ActionsTypes = ReturnType <PropertiesType <typeof actions> >
 
 export const actions = {
-    setData: (data: WeatherResponseType): SetDataType => ( { type: SET_DATA, data } as const )
+    setData: (data: WeatherResponseType) => ( { type: SET_DATA, data } as const ),
 }
-type SetDataType = {
-    data: WeatherResponseType,
-    type: typeof SET_DATA,
-}
+
+
 
 type ThunkType = ThunkAction <Promise <void>, AppStateType, unknown, ActionsTypes>
 
